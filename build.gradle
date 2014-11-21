@@ -1,0 +1,26 @@
+apply from: 'javafx.plugin'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+tasks.withType(JavaCompile) { options.encoding = "UTF-8" }
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile group: 'pl.plum.javafx', name: 'akka-eventbus', version: '1.0-SNAPSHOT'
+}
+
+jar {
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
+
+javafx {
+    mainClass = 'pl.plum.javafx.akkasample.Main'
+}
